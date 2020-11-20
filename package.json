@@ -1,0 +1,56 @@
+{
+  "name": "fe-test",
+  "version": "1.0.0",
+  "description": "Frontend test screens",
+  "main": "index.js",
+  "scripts": {
+    "test": "react-scripts test",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonk16/fe-test.git"
+  },
+  "author": "Jason",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "babel-loader": "^8.1.0",
+    "bootstrap": "^4.4.1",
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "regenerator-runtime": "^0.13.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "bugs": {
+    "url": "https://github.com/jasonk16/fe-test/issues"
+  },
+  "homepage": "https://github.com/jasonk16/fe-test#readme",
+  "devDependencies": {
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "jest": "^26.6.3",
+    "react-test-renderer": "^17.0.1"
+  }
+}
