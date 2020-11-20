@@ -1,11 +1,16 @@
 import React from 'react';
 
+import Accounts from '../Accounts';
+
+import '../../styles/main.scss';
+
 const Main = () => {
   return (
-    <div style={{ height: '100px', width: '100%', backgroundColor: '#5154e1' }}>
-      <h1>Title</h1>
+    <div className="m-0">
+      <h1>Morning Lee</h1>
+      <Accounts />
     </div>
   );
 };
 
-export default Main; 
+export default Main;

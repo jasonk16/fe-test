@@ -1,0 +1,30 @@
+@import '../../styles/main.scss';
+
+.accounts-section{
+  .account-title-text{
+    margin-left: $page-margin; 
+    margin-right: $page-margin
+  }
+  .card-container{
+    display: flex;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .account-card{
+    height: 11rem;
+    width: 9rem;
+    border-radius: 10px;
+    margin-left: .6rem; 
+    margin-right: .6rem; 
+    background: $main-colour-gradient;
+    flex: 0 0 auto; 
+    &:nth-child(1){
+      margin-left: $page-margin; 
+    }
+    &:nth-last-child(1){
+      margin-right: $page-margin; 
+    }
+  }
+}
