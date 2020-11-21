@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Main from './Main'; 
+import NameContext from './.components/nameContext';
+import Header from './.components/header'; 
+import Dashboard from './Dashboard';
 
 const App = () => {
   return (
-    <Main />
+    <NameContext>
+      <Header/>
+      <Dashboard />
+    </NameContext>
   );
 };
 
