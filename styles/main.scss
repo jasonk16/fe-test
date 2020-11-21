@@ -1,0 +1,42 @@
+@import "~bootstrap/scss/bootstrap";
+
+$main-colour: #5154e1;
+$main-colour-gradient: linear-gradient(180deg, #5154E1 50%, #684ADE 100%);
+$white: #ffffff;
+$snow: #f9f9f9;
+$silver: #c4c4c4; 
+$black: #000000; 
+
+$sm-font: 0.9rem;
+$md-font: 1.1rem;
+$lg-font: 1.8rem;
+$xl-font: 3rem; 
+
+$page-margin: 1.8rem; 
+
+body{
+  font-family: 'Raleway', sans-serif;
+  background-color: $snow;
+}
+
+h1{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: $lg-font;
+  line-height: 1;
+}
+
+h2{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: $md-font;
+  line-height: .8;
+}
+
+p{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: $sm-font;
+  margin-bottom: 0rem;
+  line-height: .5;
+}

@@ -1,14 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import NameContext from './.components/nameContext';
+import Header from './.components/header'; 
+import Dashboard from './Dashboard';
 
 const App = () => {
-  return(
-    <div style={{height: '100px', width: '100%', backgroundColor: "#18a0fb"}}>
-      <h1>Title</h1>
-    </div>
-  )
-}
+  return (
+    <NameContext>
+      <Header/>
+      <Dashboard />
+    </NameContext>
+  );
+};
 
-export default App; 
-
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'));

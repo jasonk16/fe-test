@@ -1,0 +1,21 @@
+{
+  "app_accounts" : [
+    {
+      "account_name" : "Lee",
+      "account_list": [
+        {
+          "account_name" : "Account A",
+          "amount_owed" : 45
+        },
+        {
+          "account_name" : "Account B",
+          "amount_owed" : 350
+        },
+        {
+          "account_name" : "Account C",
+          "amount_owed" : 12
+        }
+      ]
+    }
+  ]
+}

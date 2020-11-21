@@ -1,0 +1,55 @@
+@import '../../styles/main.scss';
+
+.accounts-section {
+  .account-title-text {
+    margin-left: $page-margin;
+    margin-right: $page-margin;
+  }
+  .card-container {
+    display: flex;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .account-card {
+    height: 11rem;
+    width: 9rem;
+    border-radius: 10px;
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+    background: $main-colour-gradient;
+    flex: 0 0 auto;
+    position: relative;
+    margin-left: .6rem;
+    cursor: pointer;
+    &:nth-child(1) {
+      margin-left: $page-margin;
+    }
+    &:nth-last-child(1) {
+      margin-right: $page-margin;
+    }
+
+    .card-title {
+      color: $white;
+    }
+    .amount-currency {
+      color: $white;
+      font-size: $md-font;
+      font-weight: 300;
+    }
+    .account-amount {
+      color: $white;
+      font-size: $xl-font;
+      font-weight: 500;
+    }
+    .profile-icon-card {
+      bottom: 0;
+      position: absolute;
+      margin-bottom: 1.2rem;
+    }
+    .account-name {
+      color: $silver;
+    }
+  }
+}
