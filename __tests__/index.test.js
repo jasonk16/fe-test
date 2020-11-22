@@ -5,6 +5,7 @@ import '../setupTests';
 import Dashboard from '../src/Dashboard';
 import Accounts from '../src/Accounts';
 import NameContext, { useName } from '../src/.components/nameContext';
+import Transactions from '../src/Transactions';
 
 describe('Credit App Test', () => {
   let appWrapper;
@@ -39,9 +40,19 @@ describe('Credit App Test', () => {
   });
 
   it('Passes a value as prop when clicked', () => {
-    const mountedComponent = mount(<Dashboard/>)
+    const mountedComponent = mount(<Dashboard />);
     const individualAccount = mountedComponent.find(Accounts);
-    const value = individualAccount.find('.account-card').first().childAt(0).simulate('click');
-    expect(value.props('SelectedValue')).toBeGreaterThanOrEqual(0); 
+    const value = individualAccount
+      .find('.account-card')
+      .first()
+      .childAt(0)
+      .simulate('click');
+    expect(value.props('SelectedValue')).toBeGreaterThanOrEqual(0);
+  });
+
+  it('Renders transaction component', () => {
+    const transaction = appWrapper.containsMatchingElement(Transactions);
+
+    expect(transaction).toEqual(true);
   });
 });

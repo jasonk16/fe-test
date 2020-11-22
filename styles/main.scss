@@ -3,8 +3,8 @@
 $main-colour: #5154e1;
 $main-colour-gradient: linear-gradient(180deg, #5154E1 50%, #684ADE 100%);
 $white: #ffffff;
-$snow: #f9f9f9;
-$silver: #c4c4c4; 
+$snow: #f8f8f8;
+$smoke: #f1f1f1; 
 $black: #000000; 
 
 $sm-font: 0.9rem;
@@ -16,7 +16,7 @@ $page-margin: 1.8rem;
 
 body{
   font-family: 'Raleway', sans-serif;
-  background-color: $snow;
+  background-color: $white;
 }
 
 h1{
@@ -31,6 +31,7 @@ h2{
   font-weight: 600;
   font-size: $md-font;
   line-height: .8;
+  margin-bottom: 0rem;
 }
 
 p{

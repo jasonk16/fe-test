@@ -11,20 +11,6 @@
     &::-webkit-scrollbar {
       display: none;
     }
-    // > div {
-    //   &:nth-child(1) {
-    //     margin-left: $page-margin;
-    //     .account-card{
-    //       margin-left: 0rem; 
-    //     }
-    //   }
-    //   &:nth-last-child(1) {
-    //     margin-right: $page-margin;
-    //     .account-card{
-    //       margin-right: 0rem; 
-    //     }
-    //   }
-    // }
   }
   .horizontal-scroll-container {
     margin-left: $page-margin;
@@ -42,7 +28,7 @@
     cursor: pointer;
   }
   .account-card-expanded {
-    height: 30vh;
+    height: 32vh;
     width: 100vw;
     top: 0;
     position: absolute;
@@ -75,6 +61,6 @@
     margin-bottom: 1.2rem;
   }
   .account-name {
-    color: $silver;
+    color: $smoke;
   }
 }

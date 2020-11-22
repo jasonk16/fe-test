@@ -1,0 +1,28 @@
+@import '../../styles/main.scss';
+
+.transactions-section {
+  position: relative;
+  background: white;
+  border-radius: 25px;
+  .container-content {
+    margin-left: $page-margin;
+    margin-right: $page-margin;
+  }
+  .add-button{
+    position: relative;
+    top: -41px; 
+  }
+  .transaction-cards-container {
+    overflow-y: auto;
+    height: 35vh;
+  }
+  .transaction-card-container-expanded{
+    overflow-y: auto;
+    height: 55vh;
+  }
+  .transaction-card {
+    height: 4rem;
+    background-color: $smoke;
+    border-radius: 10px;
+  }
+}

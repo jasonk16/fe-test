@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, useCycle, AnimateSharedLayout } from 'framer-motion';
+import { AnimateSharedLayout } from 'framer-motion';
 
 import AccountCard from './cards';
 import ExpandedCard from './expandedCard';
@@ -35,11 +35,12 @@ const AccountList = (props) => {
   const goBack = () => {
     setIsActivated(false);
     setAccountValue();
+    props.selectedValue();
   };
 
   return (
     <div className="accounts-section">
-      <h2 className="account-title-text">Your accounts</h2>
+      <h2 className="account-title-text pb-2">Your accounts</h2>
       <div className="py-2 card-container">
         {accountList.map((account) => {
           return (

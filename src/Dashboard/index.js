@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { useName } from '../.components/nameContext';
 import Accounts from '../Accounts';
+import Transactions from '../Transactions';
 
 import './dashboard.scss';
 
@@ -27,7 +28,6 @@ const Main = () => {
 
   const onSelect = (value) => {
     setAccountValue(value);
-    console.log('value', value);
   };
 
   useEffect(() => {
@@ -40,6 +40,7 @@ const Main = () => {
         {greeting} {accountName}
       </h1>
       <Accounts selectedValue={onSelect} />
+      <Transactions selectedAccount={accountValue}/>
     </div>
   );
 };
