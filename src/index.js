@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import NameContext from './.components/nameContext';
-import Header from './.components/header'; 
+import Header from './Header';
 import Dashboard from './Dashboard';
 
 const App = () => {
   return (
     <NameContext>
-      <Header/>
+      <Header />
       <Dashboard />
     </NameContext>
   );

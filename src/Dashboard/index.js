@@ -27,6 +27,7 @@ const Main = () => {
 
   const onSelect = (value) => {
     setAccountValue(value);
+    console.log('value', value);
   };
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const Main = () => {
       <h1 className="greeting-text mt-0">
         {greeting} {accountName}
       </h1>
-      <Accounts SelectedValue={onSelect} />
+      <Accounts selectedValue={onSelect} />
     </div>
   );
 };

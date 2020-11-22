@@ -11,6 +11,24 @@
     &::-webkit-scrollbar {
       display: none;
     }
+    // > div {
+    //   &:nth-child(1) {
+    //     margin-left: $page-margin;
+    //     .account-card{
+    //       margin-left: 0rem; 
+    //     }
+    //   }
+    //   &:nth-last-child(1) {
+    //     margin-right: $page-margin;
+    //     .account-card{
+    //       margin-right: 0rem; 
+    //     }
+    //   }
+    // }
+  }
+  .horizontal-scroll-container {
+    margin-left: $page-margin;
+    margin-right: $page-margin;
   }
   .account-card {
     height: 11rem;
@@ -21,35 +39,42 @@
     background: $main-colour-gradient;
     flex: 0 0 auto;
     position: relative;
-    margin-left: .6rem;
     cursor: pointer;
-    &:nth-child(1) {
-      margin-left: $page-margin;
+  }
+  .account-card-expanded {
+    height: 30vh;
+    width: 100vw;
+    top: 0;
+    position: absolute;
+    background: $main-colour-gradient;
+    .expanded-card-container {
+      margin: $page-margin;
+      position: relative;
+      z-index: 2;
     }
-    &:nth-last-child(1) {
-      margin-right: $page-margin;
+    .back-chevron{
+      cursor: pointer;
     }
-
-    .card-title {
-      color: $white;
-    }
-    .amount-currency {
-      color: $white;
-      font-size: $md-font;
-      font-weight: 300;
-    }
-    .account-amount {
-      color: $white;
-      font-size: $xl-font;
-      font-weight: 500;
-    }
-    .profile-icon-card {
-      bottom: 0;
-      position: absolute;
-      margin-bottom: 1.2rem;
-    }
-    .account-name {
-      color: $silver;
-    }
+  }
+  .card-title {
+    color: $white;
+  }
+  .amount-currency {
+    color: $white;
+    font-size: $md-font;
+    font-weight: 300;
+  }
+  .account-amount {
+    color: $white;
+    font-size: $xl-font;
+    font-weight: 500;
+  }
+  .profile-icon-card {
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 1.2rem;
+  }
+  .account-name {
+    color: $silver;
   }
 }

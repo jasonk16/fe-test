@@ -1,45 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion, useCycle, AnimateSharedLayout } from 'framer-motion';
 
+import AccountCard from './cards';
+import ExpandedCard from './expandedCard';
 import accountData from '../../assets/data/appData.json';
 import './accounts.scss';
-import ProfileIcon from '../../assets/svg/profileIcon';
 
 const AccountList = (props) => {
-  const onSelect = (selectedValue) => {
-    props.SelectedValue(selectedValue);
+  const accountList = accountData.app_accounts[0].account_list;
+  const [isActivated, setIsActivated] = useState(false);
+  const [accountValue, setAccountValue] = useState();
+
+  // const containerAnimation = {
+  //   hidden: { opacity: 0 },
+  //   show: {
+  //     opacity: 1,
+  //     transition: {
+  //       staggerChildren: 0.08,
+  //     },
+  //   },
+  // };
+
+  // const cardAnimation = {
+  //   hidden: { opacity: 0 },
+  //   show: { opacity: 1 },
+  // };
+
+  const onCardSelect = (accountAmount) => {
+    setAccountValue(accountAmount);
+    setIsActivated(true);
+    props.selectedValue(accountAmount);
+  };
+
+  const goBack = () => {
+    setIsActivated(false);
+    setAccountValue();
   };
 
   return (
     <div className="accounts-section">
       <h2 className="account-title-text">Your accounts</h2>
-      <div className="card-container py-2">
-        <div className="d-flex">
-          {accountData.app_accounts[0].account_list.map((account) => {
-            return (
-              <div
-                key={account.account_name}
-                className="account-card p-3"
-                onClick={() => onSelect(account.amount_owed)}
-              >
-                <p className="card-title pt-1">You're owed</p>
-                <div className="d-flex py-3">
-                  <h2 className="amount-currency">£</h2>
-                  <p className="account-amount px-1">{account.amount_owed}</p>
-                </div>
-                <div className="profile-icon-card d-flex">
-                  <ProfileIcon
-                    width="25"
-                    height="25"
-                    backgroundFill="#ffffff"
-                  />
-                  <p className="my-auto px-2 account-name">
-                    {account.account_name}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+      <div className="py-2 card-container">
+        {accountList.map((account) => {
+          return (
+            <AnimateSharedLayout key={account.account_name} type="crossfade">
+              {!isActivated ? (
+                <AccountCard
+                  accountData={account}
+                  selectedCard={onCardSelect}
+                />
+              ) : (
+                <ExpandedCard
+                  accountValue={accountValue}
+                  triggerBack={() => goBack()}
+                />
+              )}
+            </AnimateSharedLayout>
+          );
+        })}
       </div>
     </div>
   );
