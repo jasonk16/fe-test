@@ -2,10 +2,12 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import '../setupTests';
 
+import Main from '../src/index';
 import Dashboard from '../src/Dashboard';
 import Accounts from '../src/Accounts';
 import NameContext, { useName } from '../src/.components/nameContext';
 import Transactions from '../src/Transactions';
+import Footer from '../src/Footer';
 
 describe('Credit App Test', () => {
   let appWrapper;
@@ -54,5 +56,12 @@ describe('Credit App Test', () => {
     const transaction = appWrapper.containsMatchingElement(Transactions);
 
     expect(transaction).toEqual(true);
+  });
+
+  it('Renders Footer component', () => {
+    const footer = shallow(<Main />);
+    const footerComponent = footer.containsAllMatchingElements(Footer);
+
+    expect(footerComponent).toEqual(true);
   });
 });

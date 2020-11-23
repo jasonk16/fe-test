@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 const ProfileIcon = ({
@@ -9,9 +10,9 @@ const ProfileIcon = ({
 }) => {
   return (
     <svg
-      width={width ? width : '50'}
-      height={height ? height : '50'}
-      viewBox={viewBox ? viewBox : '0 0 50 50'}
+      width={width || '50'}
+      height={height || '50'}
+      viewBox={viewBox || '0 0 50 50'}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -31,7 +32,7 @@ const ProfileIcon = ({
           cx="25"
           cy="25"
           r="24"
-          stroke={borderStroke ? borderStroke : 'black'}
+          stroke={borderStroke || 'black'}
           strokeWidth="3"
           fill={backgroundFill}
         />
@@ -39,14 +40,14 @@ const ProfileIcon = ({
           cx="25"
           cy="48"
           r="18"
-          stroke={borderStroke ? borderStroke : 'black'}
+          stroke={borderStroke || 'black'}
           strokeWidth="3"
         />
         <circle
           cx="24.5"
           cy="17.5"
           r="7.5"
-          stroke={borderStroke ? borderStroke : 'black'}
+          stroke={borderStroke || 'black'}
           strokeWidth="3"
         />
       </g>

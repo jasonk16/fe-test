@@ -1,0 +1,19 @@
+@import '../../styles/main.scss';
+
+.footer {
+  height: 4rem;
+  background-color: $white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow-x: auto;
+  align-items: center;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .indicator-icon {
+    flex: 1 0 25%;
+    text-align: center;
+  }
+}
