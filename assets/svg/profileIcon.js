@@ -31,22 +31,22 @@ const ProfileIcon = ({
         <circle
           cx="25"
           cy="25"
-          r="24"
+          r="23.5"
           stroke={borderStroke || 'black'}
           strokeWidth="3"
           fill={backgroundFill}
         />
         <circle
           cx="25"
-          cy="48"
-          r="18"
+          cy="49"
+          r="18.5"
           stroke={borderStroke || 'black'}
           strokeWidth="3"
         />
         <circle
           cx="24.5"
-          cy="17.5"
-          r="7.5"
+          cy="18.5"
+          r="7"
           stroke={borderStroke || 'black'}
           strokeWidth="3"
         />

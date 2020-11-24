@@ -1,6 +1,7 @@
 const getTransactions = (data, name) => {
   let accountList;
   let transactionList;
+  let sortedtransactionList;
 
   if (data) {
     for (let i = 0; i < data.length; i++) {
@@ -10,15 +11,20 @@ const getTransactions = (data, name) => {
           if (!transactionList) {
             transactionList = accountList[j].transactions;
           } else {
-            transactionList = transactionList.concat(accountList[j].transactions);
+            transactionList = transactionList.concat(
+              accountList[j].transactions
+            );
           }
         }
+        sortedtransactionList = transactionList.sort(
+          (transaction1, transaction2) =>
+            new Date(transaction2.date) - new Date(transaction1.date)
+        );
         return [accountList, transactionList];
       }
     }
-  }
-  else{
-    console.log("getTransactions failed.")
+  } else {
+    return 'getTransactions failed.';
   }
 };
 

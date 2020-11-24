@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 import getTransactions from '../.components/getTransactions';
 import { useName } from '../.components/nameContext';
-import TransactionCard from './transactionCards';
+import TransactionCard from './transactionCard';
 import data from '../../assets/data/appData.json';
 import './transaction.scss';
 
@@ -13,6 +13,7 @@ const Transactions = ({ selectedAccount }) => {
   const [allAccountList, setAllAccountList] = useState();
   const [allTransactions, setAllTransactions] = useState();
   const [displayTransactions, setDisplayTransactions] = useState();
+  const [cardExpanded, setCardExpanded] = useState(false);
 
   const cardContainerAnimation = {
     open: { zIndex: 'inherit', marginTop: '3rem' },
@@ -58,11 +59,27 @@ const Transactions = ({ selectedAccount }) => {
           {!selectedAccount
             ? allTransactions &&
               allTransactions.map((array) => {
-                return <TransactionCard key={array.date} cardData={array} />;
+                return (
+                  <TransactionCard
+                    key={array.id}
+                    cardData={array}
+                    i={array.id}
+                    expanded={cardExpanded}
+                    setExpanded={setCardExpanded}
+                  />
+                );
               })
             : displayTransactions &&
               displayTransactions.map((array) => {
-                return <TransactionCard key={array.date} cardData={array} />;
+                return (
+                  <TransactionCard
+                    key={array.id}
+                    cardData={array}
+                    i={array.id}
+                    expanded={cardExpanded}
+                    setExpanded={setCardExpanded}
+                  />
+                );
               })}
         </div>
       </div>

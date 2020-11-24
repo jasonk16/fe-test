@@ -11,16 +11,24 @@
   }
   .transaction-card {
     height: 4rem;
-    width: 100%;
     background-color: $smoke;
     border-radius: 10px;
     align-items: center;
-    justify-content: space-between;
+    cursor: pointer;
   }
-  .card-amount{
+  .card-amount {
     font-size: $lg-font;
   }
-  .card-date{
-    color: #474747
+  .card-date {
+    color: #474747;
+  }
+  .card-unselected {
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+  .card-label-text {
+    color: $white;
+    font-size: $md-font;
   }
 }
