@@ -1,51 +1,72 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+import getTransactions from '../.components/getTransactions';
+import { useName } from '../.components/nameContext';
+import TransactionCard from './transactionCards';
+import data from '../../assets/data/appData.json';
 import './transaction.scss';
 
 const Transactions = ({ selectedAccount }) => {
-  const transactionArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
-  let accountValue = selectedAccount;
+  const allAccounts = data.app_accounts;
+  const accountHolder = useName();
+  const [allAccountList, setAllAccountList] = useState();
+  const [allTransactions, setAllTransactions] = useState();
+  const [displayTransactions, setDisplayTransactions] = useState();
 
   const cardContainerAnimation = {
     open: { zIndex: 'inherit', marginTop: '3rem' },
     closed: { marginTop: '0rem' },
   };
-  const cardListAnimation = {
-    expand: { height: '50vh', overflowY: 'auto' },
-    contract: { height: '35vh', overflowY: 'auto' },
-  };
+
+  useEffect(() => {
+    const getData = async () => {
+      if (allAccounts) {
+        const accountsTransaction = await getTransactions(
+          allAccounts,
+          accountHolder
+        );
+        setAllAccountList(accountsTransaction[0]);
+        setAllTransactions(accountsTransaction[1]);
+      }
+    };
+    getData();
+  }, []);
+
+  useEffect(() => {
+    if (selectedAccount) {
+      for (let i = 0; i < allAccountList.length; i++) {
+        if (allAccountList[i].account_name === selectedAccount) {
+          setDisplayTransactions(allAccountList[i].transactions);
+        }
+      }
+    }
+  });
 
   return (
-    <>
-      <motion.div
-        animate={accountValue ? 'open' : 'closed'}
-        variants={cardContainerAnimation}
-        transition={{ duration: 0.5 }}
-        layout
-      >
-        <div className="transactions-section pt-3">
-          <div className="container-content">
-            <h2 className={accountValue ? 'pt-4 pb-2' : 'py-2'}>
-              Transactions
-            </h2>
-            <motion.div
-              animate={accountValue ? 'expand' : 'contract'}
-              variants={cardListAnimation}
-              transition={{ duration: 0.5 }}
-            >
-              {transactionArray.map((array) => {
-                return (
-                  <div key={array} className="transaction-card my-2 p-3">
-                    {/* <p>{array}</p> */}
-                  </div>
-                );
+    <motion.div
+      animate={selectedAccount ? 'open' : 'closed'}
+      variants={cardContainerAnimation}
+      transition={{ duration: 0.5 }}
+      layout
+    >
+      <div className="transactions-section pt-3">
+        <div className="container-content">
+          <h2 className={selectedAccount ? 'pt-4 pb-2' : 'py-2'}>
+            Transactions
+          </h2>
+          {!selectedAccount
+            ? allTransactions &&
+              allTransactions.map((array) => {
+                return <TransactionCard key={array.date} cardData={array} />;
+              })
+            : displayTransactions &&
+              displayTransactions.map((array) => {
+                return <TransactionCard key={array.date} cardData={array} />;
               })}
-            </motion.div>
-          </div>
         </div>
-      </motion.div>
-    </>
+      </div>
+    </motion.div>
   );
 };
 

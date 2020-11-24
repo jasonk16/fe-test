@@ -28,25 +28,29 @@ const Footer = ({ selectedAccount }) => {
   });
 
   return (
-    <div className="footer d-flex">
+    <footer className="footer d-flex">
       <div className="indicator-icon">
         <Indicator
           name="bottomBarIndicator"
           width="42"
           height="36"
-          circleStrokeWidth={2}
-          iconColour="#5154e1"
+          active={highlightedIcon === undefined}
         />
       </div>
       {accountList &&
         accountList.map((account) => {
           return (
             <div className="indicator-icon" key={account.account_name}>
-              <Indicator name="bottomBarIndicator" width="42" height="36" />
+              <Indicator
+                name="bottomBarIndicator"
+                width="42"
+                height="36"
+                active={highlightedIcon === account.account_name}
+              />
             </div>
           );
         })}
-    </div>
+    </footer>
   );
 };
 
