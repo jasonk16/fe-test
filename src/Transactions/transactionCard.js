@@ -10,7 +10,7 @@ const TransactionCard = ({ cardData, i, expanded, setExpanded }) => {
   return (
     <motion.div
       initial={false}
-      animate={{ backgroundColor: isOpen ? '#5154e1' : '#f1f1f1' }}
+      animate={{ backgroundColor: isOpen ? '#fdeded' : '#f9f9f9' }}
       onClick={() => setExpanded(isOpen ? false : i)}
       className="transaction-card my-2 p-3 d-flex"
     >
