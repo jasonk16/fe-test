@@ -1,0 +1,26 @@
+@import '../../styles/main.scss';
+
+.transactions-section {
+  position: relative;
+  background: white;
+  border-radius: 25px;
+  margin-bottom: 6rem;
+  .container-content {
+    margin-left: $page-margin;
+    margin-right: $page-margin;
+  }
+  .transaction-card {
+    height: 4rem;
+    width: 100%;
+    background-color: $smoke;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-amount{
+    font-size: $lg-font;
+  }
+  .card-date{
+    color: #474747
+  }
+}

@@ -7,15 +7,17 @@ import './accounts.scss';
 const AccountCard = (props) => {
   const account = props.accountData;
 
-  const onSelect = (amountOwed) => {
-    props.selectedCard(amountOwed);
+  const onSelect = (selectedAccount) => {
+    props.selectedCard(selectedAccount);
   };
 
   return (
     <motion.div
       className="account-card"
-      onClick={() => onSelect(account.amount_owed)}
+      onClick={() => onSelect(account.account_name)}
       layoutId="expandedCard"
+      transition={{ duration: 0.5 }}
+      animate={{ borderRadius: '10px' }}
     >
       <div className="p-3">
         <p className="card-title pt-1">You're owed</p>

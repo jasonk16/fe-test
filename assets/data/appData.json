@@ -1,19 +1,74 @@
 {
   "app_accounts" : [
     {
-      "account_name" : "Lee",
+      "account_holder" : "Lee",
       "account_list": [
         {
           "account_name" : "Account A",
-          "amount_owed" : 45
+          "amount_owed" : 45,
+          "transactions": [
+            {
+              "date": "12/10/2020",
+              "amount": "10"
+            },
+            {
+              "date": "30/09/2020",
+              "amount": "20"
+            },
+            {
+              "date": "24/08/2020",
+              "amount": "15"
+            }
+          ]
         },
         {
           "account_name" : "Account B",
-          "amount_owed" : 350
+          "amount_owed" : 350,
+          "transactions": [
+            {
+              "date": "11/10/2020",
+              "amount": "100"
+            },
+            {
+              "date": "24/09/2020",
+              "amount": "200"
+            },
+            {
+              "date": "13/08/2020",
+              "amount": "50"
+            }
+          ]
         },
         {
           "account_name" : "Account C",
-          "amount_owed" : 12
+          "amount_owed" : 12,
+          "transactions": [
+            {
+              "date": "12/11/2020",
+              "amount": "6"
+            },
+            {
+              "date": "20/09/2020",
+              "amount": "4"
+            },
+            {
+              "date": "28/08/2020",
+              "amount": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "account_holder" : "Jason",
+      "account_list": [
+        {
+          "account_name" : "Account A",
+          "amount_owed" : 50
+        },
+        {
+          "account_name" : "Account B",
+          "amount_owed" : 120
         }
       ]
     }

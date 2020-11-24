@@ -11,24 +11,20 @@
     &::-webkit-scrollbar {
       display: none;
     }
-    // > div {
-    //   &:nth-child(1) {
-    //     margin-left: $page-margin;
-    //     .account-card{
-    //       margin-left: 0rem; 
-    //     }
-    //   }
-    //   &:nth-last-child(1) {
-    //     margin-right: $page-margin;
-    //     .account-card{
-    //       margin-right: 0rem; 
-    //     }
-    //   }
-    // }
   }
-  .horizontal-scroll-container {
-    margin-left: $page-margin;
-    margin-right: $page-margin;
+  .card-list-margin {
+    & > :nth-child(1) {
+      margin-left: $page-margin;
+    }
+    //pseudo-element after the last card to allow margins
+    & > :nth-last-child(1)::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: -1.8rem;
+      width: $page-margin;
+      height: 1px;
+    }
   }
   .account-card {
     height: 11rem;
@@ -40,9 +36,32 @@
     flex: 0 0 auto;
     position: relative;
     cursor: pointer;
+    .card-title {
+      color: $white;
+    }
+    .amount-currency {
+      color: $white;
+      font-size: $md-font;
+      font-weight: 300;
+      letter-spacing: 0.2rem;
+    }
+    .account-amount {
+      color: $white;
+      font-size: $xl-font;
+      font-weight: 500;
+      letter-spacing: 0.1rem;
+    }
+    .profile-icon-card {
+      bottom: 0;
+      position: absolute;
+      margin-bottom: 1.2rem;
+    }
+    .account-name {
+      color: $smoke;
+    }
   }
   .account-card-expanded {
-    height: 30vh;
+    height: 32vh;
     width: 100vw;
     top: 0;
     position: absolute;
@@ -52,29 +71,35 @@
       position: relative;
       z-index: 2;
     }
-    .back-chevron{
+    .back-chevron {
       cursor: pointer;
     }
+    .text-container {
+      padding-top: 2.5rem;
+    }
+    .card-title {
+      color: $white;
+    }
+    .expanded-amount-currency {
+      color: $white;
+      font-size: $lg-font;
+      font-weight: 300;
+      letter-spacing: 0.2rem;
+    }
+    .expanded-account-amount {
+      color: $white;
+      font-size: $xxl-font;
+      font-weight: 500;
+      letter-spacing: 0.1rem;
+    }
   }
-  .card-title {
-    color: $white;
-  }
-  .amount-currency {
-    color: $white;
-    font-size: $md-font;
-    font-weight: 300;
-  }
-  .account-amount {
-    color: $white;
-    font-size: $xl-font;
-    font-weight: 500;
-  }
-  .profile-icon-card {
-    bottom: 0;
+  .add-button {
     position: absolute;
-    margin-bottom: 1.2rem;
-  }
-  .account-name {
-    color: $silver;
+    right: 0;
+    top: 11rem;
+    margin-left: $page-margin;
+    margin-right: $page-margin;
+    cursor: pointer;
+    z-index: 3;
   }
 }
