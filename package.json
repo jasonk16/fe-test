@@ -4,6 +4,7 @@
   "description": "Frontend test screens",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --mode production",
     "test": "jest",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development --open"
   },
@@ -14,8 +15,8 @@
   "author": "Jason",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.7",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "babel-loader": "^8.1.0",
@@ -44,10 +45,12 @@
   },
   "homepage": "https://github.com/jasonk16/fe-test#readme",
   "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/eslint-parser": "^7.12.1",
     "babel-jest": "^26.6.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
-    "eslint": "^7.2.0",
+    "eslint": "^7.14.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",

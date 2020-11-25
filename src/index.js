@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import regeneratorRuntime from "regenerator-runtime";
+import regeneratorRuntime from 'regenerator-runtime';
 
 import NameContext from './.components/nameContext';
 import Header from './Header';
@@ -13,7 +13,7 @@ const App = () => {
   return (
     <NameContext>
       <Header />
-      <Dashboard selectedAccountName={setSelectedAccount} />
+      <Dashboard currentAccountName={setSelectedAccount} />
       <Footer selectedAccount={selectedAccount} />
     </NameContext>
   );

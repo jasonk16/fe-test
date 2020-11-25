@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const AddButton = ({ width, height, stroke, backgroundFill, viewBox }) => {
+const AddButton = ({ width, height, strokeFill, backgroundFill, viewBox }) => {
   return (
     <svg
       width={width || '48'}
@@ -13,18 +13,34 @@ const AddButton = ({ width, height, stroke, backgroundFill, viewBox }) => {
       <circle cx="24" cy="24" r="24" fill={backgroundFill || 'black'} />
       <path
         d="M14 24H33.8"
-        stroke={stroke || 'white'}
+        stroke={strokeFill || 'white'}
         strokeWidth="2"
         strokeLinecap="round"
       />
       <path
         d="M24 14V34"
-        stroke={stroke || 'white'}
+        stroke={strokeFill || 'white'}
         strokeWidth="2"
         strokeLinecap="round"
       />
     </svg>
   );
+};
+
+AddButton.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  strokeFill: PropTypes.string,
+  viewBox: PropTypes.string,
+  backgroundFill: PropTypes.string,
+};
+
+AddButton.defaultProps = {
+  width: undefined,
+  height: undefined,
+  strokeFill: undefined,
+  viewBox: undefined,
+  backgroundFill: undefined,
 };
 
 export default AddButton;

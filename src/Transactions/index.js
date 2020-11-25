@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
 import getTransactions from '../.components/getTransactions';
@@ -22,7 +23,7 @@ const Transactions = ({ selectedAccount }) => {
 
   useEffect(() => {
     const getData = async () => {
-      if (allAccounts) {
+      if (allAccounts && accountHolder) {
         const accountsTransaction = await getTransactions(
           allAccounts,
           accountHolder
@@ -42,7 +43,7 @@ const Transactions = ({ selectedAccount }) => {
         }
       }
     }
-  });
+  }, [selectedAccount]);
 
   return (
     <motion.div
@@ -85,6 +86,14 @@ const Transactions = ({ selectedAccount }) => {
       </div>
     </motion.div>
   );
+};
+
+Transactions.propTypes = {
+  selectedAccount: PropTypes.string,
+};
+
+Transactions.defaultProps = {
+  selectedAccount: undefined,
 };
 
 export default Transactions;

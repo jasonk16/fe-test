@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 
+import getTransactions from '../.components/getTransactions';
 import { useName } from '../.components/nameContext';
-import AccountCard from './cards';
+import AccountCard from './accountCard';
 import ExpandedCard from './expandedCard';
 import data from '../../assets/data/appData.json';
 import AddButton from '../../assets/svg/addButton';
 import './accounts.scss';
 
-const AccountList = (props) => {
+const Accounts = ({ selectedAccountName }) => {
   const allAccounts = data.app_accounts;
   const accountHolder = useName();
   const [allAccountList, setAllAccountList] = useState();
@@ -17,20 +18,23 @@ const AccountList = (props) => {
   const [selectedAccount, setSelectedAccount] = useState();
 
   useEffect(() => {
-    if (allAccountList === undefined) {
-      for (let i = 0; i < allAccounts.length; i++) {
-        if (allAccounts[i].account_holder === accountHolder) {
-          setAllAccountList(allAccounts[i].account_list);
-        }
+    const getData = async () => {
+      if (allAccounts && accountHolder) {
+        const accountsTransaction = await getTransactions(
+          allAccounts,
+          accountHolder
+        );
+        setAllAccountList(accountsTransaction[0]);
       }
-    }
+    };
+    getData();
   }, []);
 
   const onCardSelect = (accountName) => {
     for (let i = 0; i < allAccountList.length; i++) {
       if (allAccountList[i].account_name === accountName) {
         setSelectedAccount(allAccountList[i]);
-        props.selectedValue(accountName);
+        selectedAccountName(accountName);
       }
     }
     setIsActivated(true);
@@ -39,7 +43,7 @@ const AccountList = (props) => {
   const goBack = () => {
     setIsActivated(false);
     setSelectedAccount();
-    props.selectedValue();
+    selectedAccountName();
   };
 
   return (
@@ -60,7 +64,7 @@ const AccountList = (props) => {
                     />
                   ) : (
                     <ExpandedCard
-                      accountDetails={selectedAccount}
+                      accountData={selectedAccount}
                       triggerBack={() => goBack()}
                     />
                   )}
@@ -84,12 +88,12 @@ const AccountList = (props) => {
   );
 };
 
-AccountList.propTypes = {
-  selectedValue: PropTypes.objectOf(PropTypes.object),
+Accounts.propTypes = {
+  selectedAccountName: PropTypes.func,
 };
 
-AccountList.defaultProps = {
-  selectedValue: undefined,
+Accounts.defaultProps = {
+  selectedAccountName: undefined,
 };
 
-export default AccountList;
+export default Accounts;

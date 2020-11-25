@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ProfileIcon = ({ width, height, borderStroke, viewBox }) => {
   return (
@@ -24,6 +24,20 @@ const ProfileIcon = ({ width, height, borderStroke, viewBox }) => {
       />
     </svg>
   );
+};
+
+ProfileIcon.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  borderStroke: PropTypes.string,
+  viewBox: PropTypes.string,
+};
+
+ProfileIcon.defaultProps = {
+  width: undefined,
+  height: undefined,
+  borderStroke: undefined,
+  viewBox: undefined,
 };
 
 export default ProfileIcon;

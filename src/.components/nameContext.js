@@ -15,8 +15,8 @@ export const useNameUpdate = () => {
 const ThemeProvider = ({ children }) => {
   const [userName, setUserName] = useState('Lee');
 
-  function setName() {
-    setUserName((prevUserName) => !prevUserName);
+  function setName(name) {
+    setUserName(name);
   }
 
   return (
