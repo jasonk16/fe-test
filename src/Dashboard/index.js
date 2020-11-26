@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { useName } from '../.components/nameContext';
 import Accounts from '../Accounts';
@@ -8,7 +9,7 @@ import Transactions from '../Transactions';
 
 import './dashboard.scss';
 
-const Main = ({ selectedAccountName }) => {
+const Dashboard = ({ currentAccountName }) => {
   const accountHolder = useName();
   const [greeting, setGreeting] = useState();
   const [selectedAccount, setSelectedAccount] = useState();
@@ -30,7 +31,7 @@ const Main = ({ selectedAccountName }) => {
 
   const onSelect = (value) => {
     setSelectedAccount(value);
-    selectedAccountName(value);
+    currentAccountName(value);
   };
 
   useEffect(() => {
@@ -39,13 +40,21 @@ const Main = ({ selectedAccountName }) => {
 
   return (
     <div className="m-0 dashboard-section">
-      <h1 className="greeting-text mt-0">
+      <h1 data-testid="greetingText" className="greeting-text mt-0">
         {greeting} {accountHolder}
       </h1>
-      <Accounts selectedValue={onSelect} />
+      <Accounts selectedAccountName={onSelect} />
       <Transactions selectedAccount={selectedAccount} />
     </div>
   );
 };
 
-export default Main;
+Dashboard.propTypes = {
+  currentAccountName: PropTypes.func,
+};
+
+Dashboard.defaultProps = {
+  currentAccountName: undefined,
+};
+
+export default Dashboard;

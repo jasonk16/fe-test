@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { useName } from '../.components/nameContext';
 import './footer.scss';
@@ -25,7 +26,7 @@ const Footer = ({ selectedAccount }) => {
     // eslint-disable-next-line prefer-const
     let account = selectedAccount;
     setHighlightedIcon(account);
-  });
+  }, [selectedAccount]);
 
   return (
     <footer className="footer d-flex">
@@ -52,6 +53,14 @@ const Footer = ({ selectedAccount }) => {
         })}
     </footer>
   );
+};
+
+Footer.propTypes = {
+  selectedAccount: PropTypes.string,
+};
+
+Footer.defaultProps = {
+  selectedAccount: undefined,
 };
 
 export default Footer;

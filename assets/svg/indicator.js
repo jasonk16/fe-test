@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
 const Indicator = ({
@@ -46,6 +46,24 @@ const Indicator = ({
       />
     </motion.svg>
   );
+};
+
+Indicator.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  iconColour: PropTypes.string,
+  viewBox: PropTypes.string,
+  backgroundFill: PropTypes.string,
+  active: PropTypes.bool,
+};
+
+Indicator.defaultProps = {
+  width: undefined,
+  height: undefined,
+  iconColour: undefined,
+  viewBox: undefined,
+  backgroundFill: undefined,
+  active: false,
 };
 
 export default Indicator;

@@ -17,7 +17,7 @@
               "id": 18987,
               "date": "2020-09-21",
               "amount": "20",
-              "label": "Account A - Online Payment"
+              "label": "Account A - Food Payment"
             },
             {
               "id": 178,
@@ -35,7 +35,7 @@
               "id": 15445,
               "date": "2020-10-11",
               "amount": "100",
-              "label": "Account B - Online Payment"
+              "label": "Account B - Bills Payment"
             },
             {
               "id": 154565,
@@ -59,19 +59,19 @@
               "id": 14342,
               "date": "2020-11-12",
               "amount": "6",
-              "label": "Account B - Online Payment"
+              "label": "Account C - Online Payment"
             },
             {
               "id": 1344,
               "date": "2020-09-20",
               "amount": "4",
-              "label": "Account B - Online Payment"
+              "label": "Account C - Online Payment"
             },
             {
               "id": 143,
               "date": "2020-08-28",
               "amount": "2",
-              "label": "Account B - Online Payment"
+              "label": "Account C - Food Payment"
             }
           ]
         }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
 import getTransactions from '../.components/getTransactions';
@@ -12,7 +13,7 @@ const Transactions = ({ selectedAccount }) => {
   const accountHolder = useName();
   const [allAccountList, setAllAccountList] = useState();
   const [allTransactions, setAllTransactions] = useState();
-  const [displayTransactions, setDisplayTransactions] = useState();
+  const [selectedTransactions, setSelectedTransactions] = useState();
   const [cardExpanded, setCardExpanded] = useState(false);
 
   const cardContainerAnimation = {
@@ -22,7 +23,7 @@ const Transactions = ({ selectedAccount }) => {
 
   useEffect(() => {
     const getData = async () => {
-      if (allAccounts) {
+      if (allAccounts && accountHolder) {
         const accountsTransaction = await getTransactions(
           allAccounts,
           accountHolder
@@ -38,11 +39,11 @@ const Transactions = ({ selectedAccount }) => {
     if (selectedAccount) {
       for (let i = 0; i < allAccountList.length; i++) {
         if (allAccountList[i].account_name === selectedAccount) {
-          setDisplayTransactions(allAccountList[i].transactions);
+          setSelectedTransactions(allAccountList[i].transactions);
         }
       }
     }
-  });
+  }, [selectedAccount]);
 
   return (
     <motion.div
@@ -58,24 +59,24 @@ const Transactions = ({ selectedAccount }) => {
           </h2>
           {!selectedAccount
             ? allTransactions &&
-              allTransactions.map((array) => {
+              allTransactions.map((transaction) => {
                 return (
                   <TransactionCard
-                    key={array.id}
-                    cardData={array}
-                    i={array.id}
+                    key={transaction.id}
+                    cardData={transaction}
+                    i={transaction.id}
                     expanded={cardExpanded}
                     setExpanded={setCardExpanded}
                   />
                 );
               })
-            : displayTransactions &&
-              displayTransactions.map((array) => {
+            : selectedTransactions &&
+              selectedTransactions.map((transaction) => {
                 return (
                   <TransactionCard
-                    key={array.id}
-                    cardData={array}
-                    i={array.id}
+                    key={transaction.id}
+                    cardData={transaction}
+                    i={transaction.id}
                     expanded={cardExpanded}
                     setExpanded={setCardExpanded}
                   />
@@ -85,6 +86,14 @@ const Transactions = ({ selectedAccount }) => {
       </div>
     </motion.div>
   );
+};
+
+Transactions.propTypes = {
+  selectedAccount: PropTypes.string,
+};
+
+Transactions.defaultProps = {
+  selectedAccount: undefined,
 };
 
 export default Transactions;

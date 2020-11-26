@@ -18,6 +18,7 @@
   }
   .card-amount {
     font-size: $lg-font;
+    color: #ef767a;
   }
   .card-date {
     color: #474747;
@@ -28,7 +29,6 @@
     align-items: center;
   }
   .card-label-text {
-    color: $white;
     font-size: $md-font;
   }
 }

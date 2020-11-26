@@ -20,12 +20,12 @@ const getTransactions = (data, name) => {
           (transaction1, transaction2) =>
             new Date(transaction2.date) - new Date(transaction1.date)
         );
-        return [accountList, transactionList];
+        return [accountList, sortedtransactionList];
       }
+      throw 'getTransactions no name defined.';
     }
-  } else {
-    return 'getTransactions failed.';
   }
+  throw 'getTransactions failed.';
 };
 
 export default getTransactions;
