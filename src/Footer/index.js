@@ -26,7 +26,7 @@ const Footer = ({ selectedAccount }) => {
     // eslint-disable-next-line prefer-const
     let account = selectedAccount;
     setHighlightedIcon(account);
-  });
+  }, [selectedAccount]);
 
   return (
     <footer className="footer d-flex">

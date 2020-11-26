@@ -18,12 +18,12 @@ const TransactionCard = ({ cardData, i, expanded, setExpanded }) => {
     >
       <AnimatePresence initial={false}>
         {isOpen ? (
-          <p className="card-label-text">{cardData.label}</p>
+          <p className="card-label-text">{cardData?.label}</p>
         ) : (
           <div className="d-flex card-unselected">
-            <p className="card-date">{cardData.date}</p>
+            <p className="card-date">{cardData?.date}</p>
             <div className="d-flex">
-              <h2 className="card-amount pr-3">£ {cardData.amount}</h2>
+              <h2 className="card-amount pr-3">£ {cardData?.amount}</h2>
               <InformationIcon width="20" height="20" strokeFill="#5154e1" />
             </div>
           </div>

@@ -22,28 +22,30 @@ const testData = {
 describe('Accounts tests', () => {
   it('Card renders with no props', () => {
     const card = shallow(<AccountCard />);
-    const element = card.find('[test-id="accountOverview"]');
+    const element = card.find('[data-testid="accountOverview"]');
     expect(element).toHaveLength(1);
     expect(global.console.error).toHaveBeenCalled();
   });
 
   it('Card renders with props', () => {
     const card = shallow(<AccountCard accountData={testData} />);
-    const containsElement = card.find('[test-id="accountOverview"]');
+    const containsElement = card.find('[data-testid="accountOverview"]');
     expect(containsElement).toHaveLength(1);
   });
 
   it('Expanded Card renders with no props', () => {
     const expandedCard = shallow(<ExpandedCard />);
-    const element = expandedCard.find('[test-id="expandedCardContainer"]');
+    const element = expandedCard.find('[data-testid="expandedCardContainer"]');
     expect(element).toHaveLength(1);
     expect(global.console.error).toHaveBeenCalled();
   });
 
   it('Expanded Card renders with props', () => {
     const card = shallow(<ExpandedCard accountData={testData} />);
-    const containsElement = card.find('[test-id="expandedCardText"]').text();
-    expect(containsElement).toEqual('10');
+    const containsElement = card
+      .find('[data-testid="expandedCardText"]')
+      .text();
+    expect(containsElement).toEqual(testData.amount_owed.toString());
   });
 
   it('Account renders succesfully without context', () => {

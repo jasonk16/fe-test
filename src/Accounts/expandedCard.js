@@ -16,7 +16,7 @@ const ExpandedCard = ({ accountData, triggerBack }) => {
         exit={{ borderRadius: ['0px', '10px'] }}
       >
         <div
-          test-id="expandedCardContainer"
+          data-testid="expandedCardContainer"
           className="expanded-card-container h-100"
         >
           <div
@@ -32,7 +32,7 @@ const ExpandedCard = ({ accountData, triggerBack }) => {
             <div className="d-flex py-3 align-middle">
               <h2 className="expanded-amount-currency">£</h2>
               <p
-                test-id="expandedCardText"
+                data-testid="expandedCardText"
                 className="expanded-account-amount px-1"
               >
                 {accountData?.amount_owed}

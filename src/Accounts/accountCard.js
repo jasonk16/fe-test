@@ -21,7 +21,7 @@ const AccountCard = ({ accountData, selectedCard }) => {
       animate={{ borderRadius: '10px' }}
       tabIndex={0}
     >
-      <div test-id="accountOverview" className="p-3">
+      <div data-testid="accountOverview" className="p-3">
         <p className="card-title pt-1">You&apos;re owed</p>
         <div className="d-flex py-3">
           <h2 className="amount-currency">£</h2>

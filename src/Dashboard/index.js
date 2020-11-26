@@ -40,7 +40,7 @@ const Dashboard = ({ currentAccountName }) => {
 
   return (
     <div className="m-0 dashboard-section">
-      <h1 test-id="greetingText" className="greeting-text mt-0">
+      <h1 data-testid="greetingText" className="greeting-text mt-0">
         {greeting} {accountHolder}
       </h1>
       <Accounts selectedAccountName={onSelect} />
