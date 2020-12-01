@@ -1,7 +1,7 @@
 # fe-test
-A front-end financial account management web application project. Built with React and SCSS. 
+A front-end financial account management web application project. Built with React, SCSS and Webpack
 
-# Installation and Setup Instructions
+## Installation and Setup Instructions
 Clone down this repository. You will need `node` and `npm` installed globally on your machine. 
 
 Installation:
